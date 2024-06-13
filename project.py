@@ -130,6 +130,14 @@ if __name__ == "__main__":
                 elif "i am tired" in query:
                     from webSearch import playSong
                     playSong(query) 
+                    
+                # screenshot
+                    
+                elif "take a screenshot" in query:
+                     import random
+                     count = random.randint(1, 1000000000000)
+                     im = pyautogui.screenshot()
+                     im.save(f"ss{count}.jpg")
                  
                     
                     
