@@ -126,6 +126,13 @@ if __name__ == "__main__":
                     remember.write("")
                     speak("All remembered items have been deleted.")
                     
+                # play music
+                elif "i am tired" in query:
+                    from webSearch import playSong
+                    playSong(query) 
+                 
+                    
+                    
                     
                     
                     

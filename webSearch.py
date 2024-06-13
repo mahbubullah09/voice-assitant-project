@@ -60,7 +60,7 @@ def searchYoutube(query):
         webbrowser.open(web)
         pywhatkit.playonyt(query)
         speak("Done, Sir")
-
+ 
 def searchWikipedia(query):
     if "search in wikipedia" in query:
         speak("Searching from wikipedia....")
@@ -72,4 +72,10 @@ def searchWikipedia(query):
         print(results)
         speak(results)
 
+
+def playSong(query):
+    if "i am tired" in query:
+        speak("Playing your favourite songs, sir")
+
+        webbrowser.open("https://www.youtube.com/watch?v=KzrtfBtJqrk&list=PLbQK43Ml3sxYZDEiK5eHkymcyUAo40v1z")
     
