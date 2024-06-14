@@ -7,7 +7,7 @@ from plyer import notification
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[1].id)
+engine.setProperty("voice", voices[0].id)
 rate = engine.setProperty("rate",170)
 
 
@@ -50,6 +50,8 @@ if __name__ == "__main__":
                 
                 
                 # talk with ai 
+                elif "what's your name" in query:
+                    speak("I am kim. Personalized voice assistant of Mr. Mahbub")
                 elif "hello" in query:
                     speak("Hello Mr. Mahbub, how are you ?")
                 elif "what's your name" in query:
@@ -110,9 +112,9 @@ if __name__ == "__main__":
                     getWeather(search)
                     
                 # time 
-                elif "tell me the time " in query:
-                    strTime = datetime.datetime.now().strftime("%H:%M")    
-                    speak(f"Sir, the time is {strTime}")
+                elif "time " in query:
+                    pTime = datetime.datetime.now().strftime("%H:%M")    
+                    speak(f"Sir, the time is {pTime}")
                  
                 # remember somthing     
                 elif "remember that" in query:
@@ -178,6 +180,10 @@ if __name__ == "__main__":
                         message = content,
                         timeout = 15
                         )
+                
+                elif "exit" in query:
+                    speak("Going to deep sleep,sir")
+                    exit()
                     
               
 
