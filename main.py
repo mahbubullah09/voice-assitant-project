@@ -1,13 +1,13 @@
 import pyttsx3
 import speech_recognition 
 import datetime
-import requests
-from bs4 import BeautifulSoup
 import pyautogui
+from plyer import notification
+
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[0].id)
+engine.setProperty("voice", voices[1].id)
 rate = engine.setProperty("rate",170)
 
 
@@ -47,9 +47,13 @@ if __name__ == "__main__":
                 if "go to sleep" in query:
                     speak("Ok sir , You can me call anytime")
                     break 
+                
+                
                 # talk with ai 
                 elif "hello" in query:
                     speak("Hello Mr. Mahbub, how are you ?")
+                elif "what's your name" in query:
+                    speak("I am kim. Personalized voice assistant of Mr. Mahbub")
                 elif "i am fine" in query:
                     speak("that's great, sir")
                 elif "how are you" in query:
@@ -138,8 +142,45 @@ if __name__ == "__main__":
                      count = random.randint(1, 1000000000000)
                      im = pyautogui.screenshot()
                      im.save(f"ss{count}.jpg")
-                 
+                     
+               # shcedule      
+                elif "schedule my day" in query:
+                    tasks = [] #Empty list 
+                    speak("Do you want to clear old tasks (Plz speak YES or NO)")
+                    query = takeCommand().lower()
+                    if "yes" in query:
+                        file = open("tasks.txt","w")
+                        file.write(f"")
+                        file.close()
+                        no_tasks = int(input("Enter the no. of tasks :- "))
+                        i = 0
+                        for i in range(no_tasks):
+                            tasks.append(input("Enter the task :- "))
+                            file = open("tasks.txt","a")
+                            file.write(f"{i}. {tasks[i]}\n")
+                            file.close()
+                    elif "no" in query:
+                        i = 0
+                        no_tasks = int(input("Enter the no. of tasks :- "))
+                        for i in range(no_tasks):
+                            tasks.append(input("Enter the task :- "))
+                            file = open("tasks.txt","a")
+                            file.write(f"{i}. {tasks[i]}\n")
+                            file.close()
+                            
+                elif "show my schedule" in query:
+                    file = open("tasks.txt","r")
+                    content = file.read()
+                    file.close()
+                   
+                    notification.notify(
+                        title = "Your schedule :-",
+                        message = content,
+                        timeout = 15
+                        )
                     
+              
+
                     
                     
                     

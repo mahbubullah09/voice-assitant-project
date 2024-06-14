@@ -35,8 +35,8 @@ def speak(audio):
 def searchGoogle(query):
     if "search in google " in query:
         import wikipedia as googleScrap
-        query = query.replace("jarvis","")
-        query = query.replace("google search","")
+        query = query.replace("kim","")
+        query = query.replace("search in","")
         query = query.replace("google","")
         web  = "https://www.google.com/search?q" + query
         webbrowser.open(web)
@@ -53,9 +53,9 @@ def searchGoogle(query):
 def searchYoutube(query):
     if "search in youtube" in query:
         speak("This is what I found for your search!") 
-        query = query.replace("youtube search","")
+        query = query.replace("search in","")
         query = query.replace("youtube","")
-        query = query.replace("jarvis","")
+        query = query.replace("kim","")
         web  = "https://www.youtube.com/results?search_query={query}" 
         webbrowser.open(web)
         pywhatkit.playonyt(query)
@@ -65,8 +65,8 @@ def searchWikipedia(query):
     if "search in wikipedia" in query:
         speak("Searching from wikipedia....")
         query = query.replace("wikipedia","")
-        query = query.replace("search wikipedia","")
-        query = query.replace("jarvis","")
+        query = query.replace("search in","")
+        query = query.replace("kim","")
         results = wikipedia.summary(query,sentences = 2)
         speak("According to wikipedia..")
         print(results)
@@ -75,6 +75,7 @@ def searchWikipedia(query):
 
 def playSong(query):
     if "i am tired" in query:
+        query = query.replace("kim","")
         speak("Playing your favourite songs, sir")
 
         webbrowser.open("https://www.youtube.com/watch?v=KzrtfBtJqrk&list=PLbQK43Ml3sxYZDEiK5eHkymcyUAo40v1z")
